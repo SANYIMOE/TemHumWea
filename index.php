@@ -26,8 +26,8 @@ switch ($GET){ // Access information to determine output
         echo '<center><h3>城市:&nbsp;天津市东丽区</h3></center>';
         echo '<center><h3>当前时间:&nbsp;'.$DATETIME.';&nbsp;API更新时间:&nbsp;'.$DATA['updateTime'].'</h3></center>'; // Display time
         echo '<center><h3>当前温度:&nbsp;'.$DATA['now']['temp'].'˚C;&nbsp;当前湿度:&nbsp;'.$DATA['now']['humidity'].'%'.';&nbsp;当前天气:&nbsp;'.$DATA['now']['text'].'</h3></center>'; // Real-time information
-        /*    最近温湿度记录表格    */
-        $TEXT_DATA_LASTEST=file_get_contents("compress.zlib://".$DATAFILE.$DATANAME); //获取以前的温湿度记录
+        /*    Old temperature and humidity records    */
+        $TEXT_DATA_LASTEST=file_get_contents("compress.zlib://".$DATAFILE.$DATANAME); // Obtain old temperature and humidity records
         echo '<center>
             <table border="1">
                 <tr><td>时间</td><td>温度(˚C)</td><td>湿度(%)</td><td>天气</td></tr>
@@ -44,14 +44,14 @@ switch ($GET){ // Access information to determine output
                 <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-619,-597)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-588,-586)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-573,-571)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-560,-554)).'</td></tr>'.'
             </table>
             </center><br>';
-        /*    end:最近温湿度记录表格    */
+        /*    end:Old temperature and humidity records    */
         echo "<center><a href='".$DATAFILE.$DATANAME."'download='data.txt'><button style='width:200px;height:60px;'><font size='5'>日志下载</font></button></a></center>";
-        //echo '<center><h4>当前使用API:&nbsp;'.$API.'</h4></center>'; //显示当前使用的API
+        //echo '<center><h4>当前使用API:&nbsp;'.$API.'</h4></center>'; // Show APIs currently in use
     break;
     case 'CRON':
-        echo '<meta http-equiv="refresh" content="3;url=/">'; //跳转页面
-        echo '<title>计划任务</title><style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #4a86e8; color: #fff;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>计划任务执行成功!&nbsp;<br/></p><span style="font-size: 25px">页面将在3秒后跳转</span></div>'; //显示抓取完成提示
-        file_put_contents($DATAFILE.$DATANAME,"\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: 失败; ',FILE_APPEND); //更新文件
+        echo '<meta http-equiv="refresh" content="3;url=/">'; // Jump Page
+        echo '<title>Cron</title><style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #4a86e8; color: #fff;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>计划任务执行成功!&nbsp;<br/></p><span style="font-size: 25px">页面将在3秒后跳转</span></div>'; // Display capture completion prompt
+        file_put_contents($DATAFILE.$DATANAME,"\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: 失败; ',FILE_APPEND); // Update file
     break;
 }
 /*    End Index    */
