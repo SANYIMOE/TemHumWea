@@ -1,31 +1,31 @@
 <?php 
-/*    配置项    */
-$TIMEZONE='Asia/Shanghai'; //设置时区
-$TIMETYPE='m/d/Y h:i:s a'; //设置时间日期格式(默认：月/日/年 时:分:秒 上午/下午)
-$BGCOLOR='skyblue';
-$API=''; //设置天气API(目前支持和风天气、心知天气等)
-$DATAFILE='./data/'; //数据文件夹(默认为./data/)
-$DATANAME='lastest.txt'; //默认数据文件名(默认为lastest.txt)
-/*    End 配置项    */
+/*    Config    */
+$TIMEZONE='Asia/Shanghai'; // Set Time Zone
+$TIMETYPE='m/d/Y h:i:s a'; // Set the time and date format (default: month/day/year hour: minute: second morning/afternoon)
+$BGCOLOR='skyblue'; // Set the background color, which supports html.
+$API=''; // Set weather API (currently supports Hefeng weather, weather awareness, etc.)
+$DATAFILE='./data/'; // Data folder (default is './data/')
+$DATANAME='lastest.txt'; // Default data file name (default is 'lastest.txt')
+/*    End Config    */
 /*
-* 温湿度及天气获取源码
-* 作者：喵千寻
+* TemHumWea
+* Author：Chihiro
 */
-/*    主项    */
-header("Content-Type:text/html;charset=UTF-8"); //以UTF-8编码
-date_default_timezone_set($TIMEZONE); //设置时区
-$DATETIME=date($TIMETYPE, time()); //配置时间日期
-$DATA=json_decode(file_get_contents("compress.zlib://".$API), true);  //获取并解析API
-$GET=$_GET['GET']; //获取您的访问信息
-switch ($GET){ //以访问信息决定输出
-    default: //不添加请求后缀
+/*    Index    */
+header("Content-Type:text/html;charset=UTF-8"); // Encoded in UTF-8
+date_default_timezone_set($TIMEZONE); // Set Time Zone
+$DATETIME=date($TIMETYPE, time()); // Get Time Date
+$DATA=json_decode(file_get_contents("compress.zlib://".$API), true);  // Get and parse API
+$GET=$_GET['GET']; // Get your access information
+switch ($GET){ // Access information to determine output
+    default: // Default information
         echo '<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">'; //设置wiewport
-        echo '<title>仓储部室外温湿度获取</title>'; //设置浏览器标题
-        echo '<body bgcolor="'.$BGCOLOR.'">'; //设置背景颜色
-        echo '<br><center><h1>仓储部室外温湿度获取</h1></center>'; //显示页面标题
+        echo '<title>TemHumWea</title>'; // Set browser title
+        echo '<body bgcolor="'.$BGCOLOR.'">'; // Set background color
+        echo '<br><center><h1>TemHumWea</h1></center>'; // Set page title
         echo '<center><h3>城市:&nbsp;天津市东丽区</h3></center>';
-        echo '<center><h3>当前时间:&nbsp;'.$DATETIME.';&nbsp;API更新时间:&nbsp;'.$DATA['updateTime'].'</h3></center>'; //显示时间
-        echo '<center><h3>当前温度:&nbsp;'.$DATA['now']['temp'].'˚C;&nbsp;当前湿度:&nbsp;'.$DATA['now']['humidity'].'%'.';&nbsp;当前天气:&nbsp;'.$DATA['now']['text'].'</h3></center>'; //显示温湿度等信息
+        echo '<center><h3>当前时间:&nbsp;'.$DATETIME.';&nbsp;API更新时间:&nbsp;'.$DATA['updateTime'].'</h3></center>'; // Display time
+        echo '<center><h3>当前温度:&nbsp;'.$DATA['now']['temp'].'˚C;&nbsp;当前湿度:&nbsp;'.$DATA['now']['humidity'].'%'.';&nbsp;当前天气:&nbsp;'.$DATA['now']['text'].'</h3></center>'; // Real-time information
         /*    最近温湿度记录表格    */
         $TEXT_DATA_LASTEST=file_get_contents("compress.zlib://".$DATAFILE.$DATANAME); //获取以前的温湿度记录
         echo '<center>
@@ -54,5 +54,5 @@ switch ($GET){ //以访问信息决定输出
         file_put_contents($DATAFILE.$DATANAME,"\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: 失败; ',FILE_APPEND); //更新文件
     break;
 }
-/*    End 主项    */
+/*    End Index    */
 ?> 
