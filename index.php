@@ -19,13 +19,13 @@ $DATA=json_decode(file_get_contents("compress.zlib://".$API), true);  // Get and
 $GET=$_GET['GET']; // Get your access information
 switch ($GET){ // Access information to determine output
     default: // Default information
-        echo '<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">'; //设置wiewport
+        echo '<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">'; //Set wiewport
         echo '<title>TemHumWea</title>'; // Set browser title
         echo '<body bgcolor="'.$BGCOLOR.'">'; // Set background color
         echo '<br><center><h1>TemHumWea</h1></center>'; // Set page title
         echo '<center><h3>City:&nbsp;City</h3></center>';
-        echo '<center><h3>当前时间:&nbsp;'.$DATETIME.';&nbsp;API更新时间:&nbsp;'.$DATA['updateTime'].'</h3></center>'; // Display time
-        echo '<center><h3>当前温度:&nbsp;'.$DATA['now']['temp'].'˚C;&nbsp;当前湿度:&nbsp;'.$DATA['now']['humidity'].'%'.';&nbsp;当前天气:&nbsp;'.$DATA['now']['text'].'</h3></center>'; // Real-time information
+        echo '<center><h3>Current time:&nbsp;'.$DATETIME.';&nbsp;API Update Time:&nbsp;'.$DATA['updateTime'].'</h3></center>'; // Display time
+        echo '<center><h3>Current temperature:&nbsp;'.$DATA['now']['temp'].'˚C;&nbsp;Current humidity:&nbsp;'.$DATA['now']['humidity'].'%'.';&nbsp;Current weather:&nbsp;'.$DATA['now']['text'].'</h3></center>'; // Real-time information
         /*    Old temperature and humidity records    */
         $TEXT_DATA_LASTEST=file_get_contents("compress.zlib://".$DATAFILE.$DATANAME); // Obtain old temperature and humidity records
         echo '<center>
