@@ -30,20 +30,20 @@ switch ($GET){ // Access information to determine output
         $TEXT_DATA_LASTEST=file_get_contents("compress.zlib://".$DATAFILE.$DATANAME); // Obtain old temperature and humidity records
         echo '<center><a href="?GET=CRON"><button>Update Data in the form by hand!</button></a></center>
             <center>
-            <table border="1">
-                <tr><td>Time</td><td>Temperature(˚C)</td><td>Humidity(%)</td><td>Weather</td></tr>
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-67,-45)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-36,-34)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-21,-19)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-8,-2)).'</td></tr>'.'
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-136,-114)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-105,-103)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-90,-88)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-77,-71)).'</td></tr>'.'
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-208,-182)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-174,-172)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-159,-157)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-146,-140)).'</td></tr>'.'
-                <tr><td>Time</td><td>Temperature(˚C)</td><td>Humidity(%)</td><td>Weather</td></tr>
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-274,-252)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-243,-241)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-228,-226)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-215,-209)).'</td></tr>'.'
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-343,-321)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-312,-310)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-297,-295)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-284,-278)).'</td></tr>'.'
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-412,-390)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-381,-379)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-366,-364)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-353,-347)).'</td></tr>'.'
-                <tr><td>Time</td><td>Temperature(˚C)</td><td>Humidity(%)</td><td>Weather</td></tr>
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-481,-459)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-450,-448)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-435,-433)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-422,-416)).'</td></tr>'.'
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-550,-528)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-519,-517)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-504,-502)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-491,-485)).'</td></tr>'.'
-                <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-619,-597)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-588,-586)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-573,-571)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-560,-554)).'</td></tr>'.'
-            </table>
+                <table border="1">
+                    <tr><td>Time</td><td>Temperature(˚C)</td><td>Humidity(%)</td><td>Weather</td></tr>
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-67,-45)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-36,-34)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-21,-19)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-8,-2)).'</td></tr>'.'
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-136,-114)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-105,-103)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-90,-88)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-77,-71)).'</td></tr>'.'
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-208,-182)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-174,-172)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-159,-157)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-146,-140)).'</td></tr>'.'
+                    <tr><td>Time</td><td>Temperature(˚C)</td><td>Humidity(%)</td><td>Weather</td></tr>
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-274,-252)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-243,-241)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-228,-226)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-215,-209)).'</td></tr>'.'
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-343,-321)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-312,-310)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-297,-295)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-284,-278)).'</td></tr>'.'
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-412,-390)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-381,-379)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-366,-364)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-353,-347)).'</td></tr>'.'
+                    <tr><td>Time</td><td>Temperature(˚C)</td><td>Humidity(%)</td><td>Weather</td></tr>
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-481,-459)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-450,-448)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-435,-433)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-422,-416)).'</td></tr>'.'
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-550,-528)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-519,-517)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-504,-502)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-491,-485)).'</td></tr>'.'
+                    <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-619,-597)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-588,-586)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-573,-571)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-560,-554)).'</td></tr>'.'
+                </table>
             </center><br>';
         /*    end:Old temperature and humidity records    */
         echo "<center><a href='".$DATAFILE.$DATANAME."'download='data.txt'><button style='width:200px;height:60px;'><font size='5'>日志下载</font></button></a></center>";
