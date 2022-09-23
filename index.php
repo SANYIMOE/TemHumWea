@@ -23,7 +23,7 @@ switch ($GET){ // Access information to determine output
         echo '<title>TemHumWea</title>'; // Set browser title
         echo '<body bgcolor="'.$BGCOLOR.'">'; // Set background color
         echo '<br><center><h1>TemHumWea</h1></center>'; // Set page title
-        echo '<center><h3>城市:&nbsp;天津市东丽区</h3></center>';
+        echo '<center><h3>City:&nbsp;City</h3></center>';
         echo '<center><h3>当前时间:&nbsp;'.$DATETIME.';&nbsp;API更新时间:&nbsp;'.$DATA['updateTime'].'</h3></center>'; // Display time
         echo '<center><h3>当前温度:&nbsp;'.$DATA['now']['temp'].'˚C;&nbsp;当前湿度:&nbsp;'.$DATA['now']['humidity'].'%'.';&nbsp;当前天气:&nbsp;'.$DATA['now']['text'].'</h3></center>'; // Real-time information
         /*    Old temperature and humidity records    */
