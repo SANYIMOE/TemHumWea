@@ -28,7 +28,8 @@ switch ($GET){ // Access information to determine output
         echo '<center><h3>Current temperature:&nbsp;'.$DATA['now']['temp'].'˚C;&nbsp;Current humidity:&nbsp;'.$DATA['now']['humidity'].'%'.';&nbsp;Current weather:&nbsp;'.$DATA['now']['text'].'</h3></center>'; // Real-time information
         /*    Old temperature and humidity records    */
         $TEXT_DATA_LASTEST=file_get_contents("compress.zlib://".$DATAFILE.$DATANAME); // Obtain old temperature and humidity records
-        echo '<center>
+        echo '<center><a href="?GET=CRON"><button>Update Data in the form by hand!</button></a></center>
+            <center>
             <table border="1">
                 <tr><td>Time</td><td>Temperature(˚C)</td><td>Humidity(%)</td><td>Weather</td></tr>
                 <tr><td>'.urldecode(substr($TEXT_DATA_LASTEST,-67,-45)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-36,-34)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-21,-19)).'</td><td>'.urldecode(substr($TEXT_DATA_LASTEST,-8,-2)).'</td></tr>'.'
