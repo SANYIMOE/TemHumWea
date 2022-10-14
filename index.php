@@ -88,34 +88,34 @@ switch ($GET){ //Access information to determine output
             file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //Encode and write data to database file
         }
         if($TIME==$CRON1){ //If the time is specified
-            $JSONDATA['today']['morning']['updateTime']=$DATETIME; //更新时间历史
-            $JSONDATA['today']['morning']['APIupdateTime']=$DATA['updateTime']; //API更新时间历史
-            $JSONDATA['today']['morning']['temp']=$DATA['now']['temp']; //温度历史
-            $JSONDATA['today']['morning']['humidity']=$DATA['now']['humidity']; //湿度历史
-            $JSONDATA['today']['morning']['text']=$DATA['now']['text']; //天气历史
-            $JSONDATA['today']['morning']['windDir']=$DATA['now']['windDir']; //风向历史
-            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: '.$DATA['now']['text'].'; 风向: '.$DATA['now']['windDir'],FILE_APPEND); //更新文件
-            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //编码并写入数据到数据库文件
+            $JSONDATA['today']['morning']['updateTime']=$DATETIME;
+            $JSONDATA['today']['morning']['APIupdateTime']=$DATA['updateTime'];
+            $JSONDATA['today']['morning']['temp']=$DATA['now']['temp'];
+            $JSONDATA['today']['morning']['humidity']=$DATA['now']['humidity'];
+            $JSONDATA['today']['morning']['text']=$DATA['now']['text'];
+            $JSONDATA['today']['morning']['windDir']=$DATA['now']['windDir'];
+            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.'Temperature: '.$DATA['now']['temp'].'˚C; Humidity: '.$DATA['now']['humidity'].'%'.'; Weather: '.$DATA['now']['text'].'; Wind Direction: '.$DATA['now']['windDir'],FILE_APPEND); //Update Log
+            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //Encode and write data to database file
         }
         if($TIME==$CRON2){ //If the time is specified
-            $JSONDATA['today']['noon']['updateTime']=$DATETIME; //更新时间历史
-            $JSONDATA['today']['noon']['APIupdateTime']=$DATA['updateTime']; //API更新时间历史
-            $JSONDATA['today']['noon']['temp']=$DATA['now']['temp']; //温度历史
-            $JSONDATA['today']['noon']['humidity']=$DATA['now']['humidity']; //湿度历史
-            $JSONDATA['today']['noon']['text']=$DATA['now']['text']; //天气历史
-            $JSONDATA['today']['noon']['windDir']=$DATA['now']['windDir']; //风向历史
-            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: '.$DATA['now']['text'].'; 风向: '.$DATA['now']['windDir'],FILE_APPEND); //更新文件
-            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //编码并写入数据到数据库文件
+            $JSONDATA['today']['noon']['updateTime']=$DATETIME;
+            $JSONDATA['today']['noon']['APIupdateTime']=$DATA['updateTime'];
+            $JSONDATA['today']['noon']['temp']=$DATA['now']['temp'];
+            $JSONDATA['today']['noon']['humidity']=$DATA['now']['humidity'];
+            $JSONDATA['today']['noon']['text']=$DATA['now']['text'];
+            $JSONDATA['today']['noon']['windDir']=$DATA['now']['windDir'];
+            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.'Temperature: '.$DATA['now']['temp'].'˚C; Humidity: '.$DATA['now']['humidity'].'%'.'; Weather: '.$DATA['now']['text'].'; Wind Direction: '.$DATA['now']['windDir'],FILE_APPEND); //Update Log
+            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //Encode and write data to database file
         }
         if($TIME==$CRON3){ //If the time is specified
-            $JSONDATA['today']['afternoon']['updateTime']=$DATETIME; //更新时间历史
-            $JSONDATA['today']['afternoon']['APIupdateTime']=$DATA['updateTime']; //API更新时间历史
-            $JSONDATA['today']['afternoon']['temp']=$DATA['now']['temp']; //温度历史
-            $JSONDATA['today']['afternoon']['humidity']=$DATA['now']['humidity']; //湿度历史
-            $JSONDATA['today']['afternoon']['text']=$DATA['now']['text']; //天气历史
-            $JSONDATA['today']['afternoon']['windDir']=$DATA['now']['windDir']; //风向历史
-            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: '.$DATA['now']['text'].'; 风向: '.$DATA['now']['windDir'],FILE_APPEND); //更新文件
-            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //编码并写入数据到数据库文件
+            $JSONDATA['today']['afternoon']['updateTime']=$DATETIME;
+            $JSONDATA['today']['afternoon']['APIupdateTime']=$DATA['updateTime'];
+            $JSONDATA['today']['afternoon']['temp']=$DATA['now']['temp'];
+            $JSONDATA['today']['afternoon']['humidity']=$DATA['now']['humidity'];
+            $JSONDATA['today']['afternoon']['text']=$DATA['now']['text'];
+            $JSONDATA['today']['afternoon']['windDir']=$DATA['now']['windDir'];
+            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.'Temperature: '.$DATA['now']['temp'].'˚C; Humidity: '.$DATA['now']['humidity'].'%'.'; Weather: '.$DATA['now']['text'].'; Wind Direction: '.$DATA['now']['windDir'],FILE_APPEND); //Update Log
+            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //Encode and write data to database file
         }
         if($TIME=='23:59'){ //If the time is before 0am, archive yesterday and the day before yesterday
             $JSONDATA['history']['yesterday']['morning']['updateTime']=$DATABASELOAD['today']['morning']['updateTime']; //更新时间历史
@@ -227,8 +227,8 @@ switch ($GET){ //Access information to determine output
         $JSONAPI['history']['beforeyesterday']['afternoon']['humidity']=$DATABASELOAD['history']['beforeyesterday']['afternoon']['humidity']; //湿度历史
         $JSONAPI['history']['beforeyesterday']['afternoon']['text']=$DATABASELOAD['history']['beforeyesterday']['afternoon']['text']; //天气历史
         $JSONAPI['history']['beforeyesterday']['afternoon']['windDir']=$DATABASELOAD['history']['beforeyesterday']['afternoon']['windDir']; //风向历史
-        echo json_encode($JSONAPI,JSON_UNESCAPED_UNICODE); //以JSON格式编码并输出
+        echo json_encode($JSONAPI,JSON_UNESCAPED_UNICODE); //Encode and output in JSON format
     break;
 }
-/*    End 主项    */
+/*    End main    */
 ?> 
