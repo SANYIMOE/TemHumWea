@@ -13,9 +13,11 @@ A simple script for obtaining temperature, humidity and weather.
 ## API interface
 The system provides an API interface. You only need to decode it in json mode‘ http://test.wt.tjdonglixs.cn/?GET=API ’OK.
 
-### API参数说明
-|----|----|
-|code|
+### API Parameter Description
+|Parameter|Description|
+|:----:|:----:|
+|||
+|||
 
 # TemHumWea
 温湿度和天气
