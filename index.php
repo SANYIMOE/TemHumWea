@@ -67,27 +67,27 @@ switch ($GET){ //Access information to determine output
     case 'CRON':
         $TIME=date('H:i', time()); //Configure Update Time
         echo '<meta http-equiv="refresh" content="3;url=/">'; //Jump Page
-        echo '<title>计划任务</title><style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #4a86e8; color: #fff;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>Successfully executed the scheduled task!&nbsp;<br/></p><span style="font-size: 25px">The page will jump in 3 seconds</span></div>'; //Display successful execution prompt
-        $DATA=json_decode(file_get_contents("compress.zlib://".$API), true);  //获取并解析API
-        $JSONDATA=array(); //数组形式
-        $JSONDATA['now']['updateTime']=$DATETIME; //实时更新时间
-        $JSONDATA['now']['APIupdateTime']=$DATA['updateTime']; //API更新时间
-        $JSONDATA['now']['temp']=$DATA['now']['temp']; //实时温度
-        $JSONDATA['now']['humidity']=$DATA['now']['humidity']; //实时湿度
-        $JSONDATA['now']['text']=$DATA['now']['text']; //实时天气
-        $JSONDATA['now']['windDir']=$DATA['now']['windDir']; //实时风向
-        file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //更新实时数据
-        if($TIME==$CRON){ //如果时间为指定时间
-            $JSONDATA['lastest']['updateTime']=$DATETIME; //更新时间历史
-            $JSONDATA['lastest']['APIupdateTime']=$DATA['updateTime']; //API更新时间历史
-            $JSONDATA['lastest']['temp']=$DATA['now']['temp']; //温度历史
-            $JSONDATA['lastest']['humidity']=$DATA['now']['humidity']; //湿度历史
-            $JSONDATA['lastest']['text']=$DATA['now']['text']; //天气历史
-            $JSONDATA['lastest']['windDir']=$DATA['now']['windDir']; //风向历史
-            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: '.$DATA['now']['text'].'; 风向: '.$DATA['now']['windDir'],FILE_APPEND); //更新文件
-            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //编码并写入数据到数据库文件
+        echo '<title>CRON</title><style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #4a86e8; color: #fff;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>Successfully executed the scheduled task!&nbsp;<br/></p><span style="font-size: 25px">The page will jump in 3 seconds</span></div>'; //Display successful execution prompt
+        $DATA=json_decode(file_get_contents("compress.zlib://".$API), true);  //Get and parse API
+        $JSONDATA=array(); //Array
+        $JSONDATA['now']['updateTime']=$DATETIME; //Real-Time update time
+        $JSONDATA['now']['APIupdateTime']=$DATA['updateTime']; //API real-time update time
+        $JSONDATA['now']['temp']=$DATA['now']['temp']; //Real-Time temperature
+        $JSONDATA['now']['humidity']=$DATA['now']['humidity']; //Real-Time humidity
+        $JSONDATA['now']['text']=$DATA['now']['text']; //Real-Time Weather
+        $JSONDATA['now']['windDir']=$DATA['now']['windDir']; //Real-Time wind direction
+        file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //Update real-time data
+        if($TIME==$CRON){ //If the time is specified
+            $JSONDATA['lastest']['updateTime']=$DATETIME;
+            $JSONDATA['lastest']['APIupdateTime']=$DATA['updateTime'];
+            $JSONDATA['lastest']['temp']=$DATA['now']['temp'];
+            $JSONDATA['lastest']['humidity']=$DATA['now']['humidity'];
+            $JSONDATA['lastest']['text']=$DATA['now']['text'];
+            $JSONDATA['lastest']['windDir']=$DATA['now']['windDir'];
+            file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.'Temperature: '.$DATA['now']['temp'].'˚C; Humidity: '.$DATA['now']['humidity'].'%'.'; Weather: '.$DATA['now']['text'].'; Wind Direction: '.$DATA['now']['windDir'],FILE_APPEND); //Update Log
+            file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //Encode and write data to database file
         }
-        if($TIME==$CRON1){ //如果时间为指定时间
+        if($TIME==$CRON1){ //If the time is specified
             $JSONDATA['today']['morning']['updateTime']=$DATETIME; //更新时间历史
             $JSONDATA['today']['morning']['APIupdateTime']=$DATA['updateTime']; //API更新时间历史
             $JSONDATA['today']['morning']['temp']=$DATA['now']['temp']; //温度历史
@@ -97,7 +97,7 @@ switch ($GET){ //Access information to determine output
             file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: '.$DATA['now']['text'].'; 风向: '.$DATA['now']['windDir'],FILE_APPEND); //更新文件
             file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //编码并写入数据到数据库文件
         }
-        if($TIME==$CRON2){ //如果时间为指定时间
+        if($TIME==$CRON2){ //If the time is specified
             $JSONDATA['today']['noon']['updateTime']=$DATETIME; //更新时间历史
             $JSONDATA['today']['noon']['APIupdateTime']=$DATA['updateTime']; //API更新时间历史
             $JSONDATA['today']['noon']['temp']=$DATA['now']['temp']; //温度历史
@@ -107,7 +107,7 @@ switch ($GET){ //Access information to determine output
             file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: '.$DATA['now']['text'].'; 风向: '.$DATA['now']['windDir'],FILE_APPEND); //更新文件
             file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //编码并写入数据到数据库文件
         }
-        if($TIME==$CRON3){ //如果时间为指定时间
+        if($TIME==$CRON3){ //If the time is specified
             $JSONDATA['today']['afternoon']['updateTime']=$DATETIME; //更新时间历史
             $JSONDATA['today']['afternoon']['APIupdateTime']=$DATA['updateTime']; //API更新时间历史
             $JSONDATA['today']['afternoon']['temp']=$DATA['now']['temp']; //温度历史
@@ -117,7 +117,7 @@ switch ($GET){ //Access information to determine output
             file_put_contents($DATAFILE.".txt","\r\n".$DATETIME.' 温度: '.$DATA['now']['temp'].'˚C; 湿度: '.$DATA['now']['humidity'].'%'.'; 天气: '.$DATA['now']['text'].'; 风向: '.$DATA['now']['windDir'],FILE_APPEND); //更新文件
             file_put_contents($DATABASEFILE,json_encode($JSONDATA,JSON_UNESCAPED_UNICODE)); //编码并写入数据到数据库文件
         }
-        if($TIME=='23:59'){ //如果时间为早上0点前，则归档昨天和前天
+        if($TIME=='23:59'){ //If the time is before 0am, archive yesterday and the day before yesterday
             $JSONDATA['history']['yesterday']['morning']['updateTime']=$DATABASELOAD['today']['morning']['updateTime']; //更新时间历史
             $JSONDATA['history']['yesterday']['morning']['APIupdateTime']=$DATABASELOAD['today']['morning']['APIupdateTime']; //API更新时间历史
             $JSONDATA['history']['yesterday']['morning']['temp']=$DATABASELOAD['today']['morning']['temp']; //温度历史
