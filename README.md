@@ -16,8 +16,22 @@ The system provides an API interface. You only need to decode it in json mode‘
 ### API Parameter Description
 |Parameter|Description|
 |:----:|:----:|
-|||
-|||
+|code|Status Code|
+|now|Real-time info|
+|updateTime|Time for the system update data|
+|APIupdateTime|Time for API update data|
+|temp|Temperature|
+|humidity|Humidity|
+|text|Weather|
+|windDir|wind direction|
+|lastest|The lastest time data|
+|today|Today data|
+|morning|Morning data for some days|
+|noon|Noon data for some days|
+|afternoon|Afternoon data for some days|
+|history|History data|
+|yesterday|Data for yesterday|
+|beforeyesterday|Data for the day before yesterday|
 
 # TemHumWea
 温湿度和天气
