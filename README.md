@@ -1,4 +1,9 @@
 # TemHumWea
+<p align="center">
+<a href="https://github.com/SANYIMOE/TemHumWea/releases"><img alt="GitHub release (latest SemVer including pre-releases)" src="https://img.shields.io/github/v/release/SANYIMOE/TemHumWea?include_prereleases&style=flat-square"></a>
+<a href="https://github.com/SANYIMOE/TemHumWea/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/SANYIMOE/TemHumWea?style=flat-square"></a>
+</p>
+
 # English
 English | <a href="#中文-简体">中文-简体</a>
 
